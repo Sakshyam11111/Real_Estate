@@ -1,0 +1,487 @@
+[
+  {
+    "id": 1,
+    "title": "Rose Villa Phase V - Villa 1",
+    "location": "Budhanilkantha Height, Near Budhanilkantha Temple",
+    "price": 47500000,
+    "priceType": "standard",
+    "type": "house",
+    "beds": 4,
+    "baths": 5,
+    "image": "/assets/RoseVilla01.jpeg",
+    "featured": true,
+    "status": "available",
+    "agent": "Basobas Nepal Pvt. Ltd",
+    "phone": "+977-XXXXXXXXXX",
+    "details": {
+      "builtUpArea": "3306 Sq.Ft",
+      "landArea": "3.5 Aana",
+      "floors": "3.5",
+      "direction": "West",
+      "description": "This residential house at Rose Villa is located in a prime area of Budhanilkantha, Kathmandu which is situated just above the budhanilkantha temple.",
+      "highlights": [
+        "Newly built – 12\"×12\" pillar system with Double tie beams.",
+        "Most of the bedrooms are attached with a washroom, a walk-in closet, and a balcony.",
+        "Structural analysis using E-Tabs 2016."
+      ],
+      "amenities": [
+        "Deck", "Fencing", "Modular Kitchen", "TV Cable", "Wifi", "Water Supply",
+        "Solar Water", "Internet", "Parking", "Security Staff", "Store Room"
+      ],
+      "construction": {
+        "flooring": "American Standard Parqueting in each room",
+        "plumbing": "Jaguar Shower Case (From India)",
+        "electricity": "CPL Modular System",
+        "cables": "All Utility Cables run underneath the house",
+        "woodWork": "Season Wood Used",
+        "windows": "Hulas Aluminium",
+        "solar": "Tube System (Sun Company)",
+        "cement": "Shivam OPC",
+        "rod": "Saakha Torsteel",
+        "sand": "From Bishnumati River"
+      },
+      "locationHighlights": [
+        "Walking distance from Big Mart (500 Meters)",
+        "4 KM from Neuro/Gangalal Hospital",
+        "5.4 KM from Bhathbhateni",
+        "6 KM from Teaching Hospital",
+        "8.2 KM from Pashupatinath Temple"
+      ],
+      "emi": {
+        "loanAmount": 39900000,
+        "downPayment": 7600000,
+        "interestRate": 8.5,
+        "tenureMonths": 240
+      },
+      "fullFeatures": [
+        "4 Bedroom with all attached bathroom + 1 Common Bathroom",
+        "2 Living rooms, Modular Kitchen with Dining, Store, Lobby, Puja Kotha, Balcony",
+        "Modern design finish with Italian Tiles",
+        "Community water supply + Reserve water tank (Automatic System)",
+        "24hrs Water and drainage facility",
+        "Separate washroom for visitors",
+        "Semi-Commercial zoning",
+        "<a href='https://maps.google.com/?q=Budhanilkantha+Height' target='_blank'>Click Here for Google Map Location</a>",
+        "Underground Electricity",
+        "24 hrs security",
+        "Total Land Area: 3.5 Aana",
+        "Built-up Area: 3306 Sq.Ft",
+        "Road Access: 32 Feet Wide Road",
+        "2 car parking spaces + open parking for visitors",
+        "All papers and documents provided",
+        "Selling Price: Rs 4 Crore 75 Lakhs"
+      ]
+    }
+  },
+  {
+    "id": 2,
+    "title": "Rose Villa Phase V - Villa 2",
+    "location": "Budhanilkantha Height, Near Budhanilkantha Temple",
+    "price": 47500000,
+    "priceType": "standard",
+    "type": "house",
+    "beds": 5,
+    "baths": 5,
+    "image": "/assets/RoseVilla02.jpg",
+    "featured": true,
+    "status": "sold",
+    "agent": "Basobas Nepal Pvt. Ltd",
+    "phone": "+977-XXXXXXXXXX",
+    "details": {
+      "builtUpArea": "3316 Sq.Ft",
+      "landArea": "4.75 Aana",
+      "floors": "3.5",
+      "direction": "West",
+      "description": "Executive 7 Bungalow Only. Smart living in Rose Villa.",
+      "highlights": [
+        "Newly built – 12\"×12\" pillar system with Double tie beams.",
+        "Spacious family dining + modular kitchen."
+      ],
+      "amenities": [
+        "Deck", "Fencing", "Modular Kitchen", "TV Cable", "Wifi", "Water Supply",
+        "Solar Water", "Internet", "Parking", "Security Staff", "Store Room"
+      ],
+      "construction": {
+        "flooring": "American Standard Parqueting in each room",
+        "plumbing": "Jaguar Shower Case (From India)",
+        "electricity": "CPL Modular System",
+        "cables": "All Utility Cables run underneath the house",
+        "woodWork": "Season Wood Used",
+        "windows": "Hulas Aluminium",
+        "solar": "Tube System (Sun Company)",
+        "cement": "Shivam OPC",
+        "rod": "Saakha Torsteel",
+        "sand": "From Bishnumati River"
+      },
+      "locationHighlights": [
+        "Walking distance from Big Mart (500 Meters)",
+        "4 KM from Neuro/Gangalal Hospital"
+      ],
+      "emi": {
+        "loanAmount": 47500000,
+        "downPayment": 0,
+        "interestRate": 8.5,
+        "tenureMonths": 240
+      },
+      "fullFeatures": [
+        "5 Bedroom (all attached) + 1 Common Bathroom",
+        "2 Living rooms, Modular Kitchen with Dining, Store, Lobby, Puja Kotha, Balcony",
+        "Modern design finish with Italian Tiles",
+        "Community water supply + Automatic Reserve Tank",
+        "24hrs Water and drainage facility",
+        "Separate visitor washroom",
+        "Semi-Commercial zoning",
+        "<a href='https://maps.google.com/?q=Budhanilkantha+Height' target='_blank'>Click Here for Google Map Location</a>",
+        "Underground Electricity",
+        "24 hrs security",
+        "Total Land Area: 4.75 Aana",
+        "Built-up Area: 3316 Sq.Ft",
+        "Road Access: 32 Feet Wide Road",
+        "2 car parking + visitor parking",
+        "All legal documents provided",
+        "**SOLD** – Rs 4 Crore 75 Lakhs"
+      ]
+    }
+  },
+  {
+    "id": 3,
+    "title": "Rose Villa Phase V - Villa 3",
+    "location": "Budhanilkantha Height, Near Budhanilkantha Temple",
+    "price": 47500000,
+    "priceType": "standard",
+    "type": "house",
+    "beds": 5,
+    "baths": 6,
+    "image": "/assets/RoseVilla03.jpeg",
+    "featured": true,
+    "status": "sold",
+    "agent": "Basobas Nepal Pvt. Ltd",
+    "phone": "+977-XXXXXXXXXX",
+    "details": {
+      "builtUpArea": "3316 Sq.Ft",
+      "landArea": "4.75 Aana",
+      "floors": "3.5",
+      "direction": "West",
+      "description": "**SOLD** Luxury 5BHK home in prime Budhanilkantha location.",
+      "highlights": ["SOLD", "Prime West-facing location", "5 Bedrooms + 6 Baths"],
+      "amenities": ["Deck", "Fencing", "Modular Kitchen", "TV Cable", "Wifi", "Water Supply", "Solar Water", "Internet", "Parking", "Security Staff", "Store Room"],
+      "construction": {
+        "flooring": "American Standard Parqueting",
+        "plumbing": "Jaguar Shower Case",
+        "electricity": "CPL Modular System"
+      },
+      "locationHighlights": ["Budhanilkantha Height"],
+      "emi": {
+        "loanAmount": 47500000,
+        "downPayment": 0,
+        "interestRate": 8.5,
+        "tenureMonths": 240
+      },
+      "fullFeatures": [
+        "**SOLD** – 5 Bedroom + 6 Baths",
+        "2 Living rooms, Modular Kitchen, Store, Lobby, Puja Kotha, Balcony",
+        "Italian Tiles & Modern Finish",
+        "Community + 24hrs Water Supply",
+        "Separate visitor washroom",
+        "Semi-Commercial zoning",
+        "<a href='https://maps.google.com/?q=Budhanilkantha+Height' target='_blank'>Click Here for Google Map Location</a>",
+        "Underground Electricity",
+        "24 hrs security",
+        "Land Area: 4.75 Aana",
+        "Built-up: 3316 Sq.Ft",
+        "32 Ft Wide Road",
+        "2 Car Parking + Visitor Space",
+        "All documents provided",
+        "Price: Rs 4 Crore 75 Lakhs"
+      ]
+    }
+  },
+  {
+    "id": 4,
+    "title": "Rose Villa Phase V - Villa 4",
+    "location": "Budhanilkantha Height, Near Budhanilkantha Temple",
+    "price": 59000000,
+    "priceType": "standard",
+    "type": "house",
+    "beds": 4,
+    "baths": 5,
+    "image": "/assets/RoseVilla04.jpeg",
+    "featured": true,
+    "status": "available",
+    "agent": "Basobas Nepal Pvt. Ltd",
+    "phone": "+977-XXXXXXXXXX",
+    "details": {
+      "builtUpArea": "3300 Sq.Ft",
+      "landArea": "4.82 Aana",
+      "floors": "3.5",
+      "direction": "West",
+      "description": "Premium 4BHK villa with spacious layout and modern amenities.",
+      "highlights": [
+        "Largest land area in the project",
+        "Spacious 3300 Sq.Ft built-up",
+        "West-facing with excellent ventilation"
+      ],
+      "amenities": [
+        "Deck", "Fencing", "Modular Kitchen", "TV Cable", "Wifi", "Water Supply",
+        "Solar Water", "Internet", "Parking", "Security Staff", "Store Room"
+      ],
+      "construction": {
+        "flooring": "American Standard Parqueting in each room",
+        "plumbing": "Jaguar Shower Case (From India)",
+        "electricity": "CPL Modular System"
+      },
+      "locationHighlights": ["Budhanilkantha Height - Premium Location"],
+      "emi": {
+        "loanAmount": 59000000,
+        "downPayment": 0,
+        "interestRate": 8.5,
+        "tenureMonths": 240
+      },
+      "fullFeatures": [
+        "4 Bedroom + 5 Baths (all attached)",
+        "2 Living rooms, Modular Kitchen with Dining, Store, Lobby, Puja Kotha, Balcony",
+        "Italian Tiles & Modern Design",
+        "Community + 24hrs Water Supply",
+        "Separate visitor washroom",
+        "Semi-Commercial zoning",
+        "<a href='https://maps.google.com/?q=Budhanilkantha+Height' target='_blank'>Click Here for Google Map Location</a>",
+        "Underground Electricity",
+        "24 hrs security",
+        "Largest Land: 4.82 Aana",
+        "Built-up: 3300 Sq.Ft",
+        "32 Ft Wide Road",
+        "2 Car Parking + Visitor Space",
+        "All documents provided",
+        "Selling Price: Rs 5 Crore 90 Lakhs"
+      ]
+    }
+  },
+  {
+    "id": 5,
+    "title": "Rose Villa Phase V - Villa 5",
+    "location": "Budhanilkantha Height, Near Budhanilkantha Temple",
+    "price": 44000000,
+    "priceType": "standard",
+    "type": "house",
+    "beds": 4,
+    "baths": 5,
+    "image": "/assets/RoseVilla05.jpeg",
+    "featured": true,
+    "status": "sold",
+    "agent": "Basobas Nepal Pvt. Ltd",
+    "phone": "+977-XXXXXXXXXX",
+    "details": {
+      "builtUpArea": "2530 Sq.Ft",
+      "landArea": "3.57 Aana",
+      "floors": "3.5",
+      "direction": "West",
+      "description": "**SOLD** Compact yet luxurious 4BHK villa.",
+      "highlights": ["SOLD", "Optimal size for families", "West-facing"],
+      "amenities": ["Deck", "Fencing", "Modular Kitchen", "TV Cable", "Wifi", "Water Supply", "Solar Water", "Internet", "Parking", "Security Staff", "Store Room"],
+      "construction": {
+        "flooring": "American Standard Parqueting",
+        "solar": "Tube System (Sun Company)"
+      },
+      "locationHighlights": ["Prime Budhanilkantha location"],
+      "emi": {
+        "loanAmount": 44000000,
+        "downPayment": 0,
+        "interestRate": 8.5,
+        "tenureMonths": 240
+      },
+      "fullFeatures": [
+        "**SOLD** – 4 Bedroom + 5 Baths",
+        "2 Living rooms, Modular Kitchen, Store, Lobby, Puja Kotha, Balcony",
+        "Italian Tiles & Modern Finish",
+        "24hrs Water + Drainage",
+        "Separate visitor washroom",
+        "Semi-Commercial zoning",
+        "<a href='https://maps.google.com/?q=Budhanilkantha+Height' target='_blank'>Click Here for Google Map Location</a>",
+        "Underground Electricity",
+        "24 hrs security",
+        "Land Area: 3.57 Aana",
+        "Built-up: 2530 Sq.Ft",
+        "32 Ft Wide Road",
+        "2 Car Parking + Visitor Space",
+        "All documents provided",
+        "Price: Rs 4 Crore 40 Lakhs"
+      ]
+    }
+  },
+  {
+    "id": 6,
+    "title": "Rose Villa Phase V - Villa 6",
+    "location": "Budhanilkantha Height, Near Budhanilkantha Temple",
+    "price": 42000000,
+    "priceType": "standard",
+    "type": "house",
+    "beds": 4,
+    "baths": 5,
+    "image": "/assets/RoseVilla06.jpeg",
+    "featured": true,
+    "status": "available",
+    "agent": "Basobas Nepal Pvt. Ltd",
+    "phone": "+977-XXXXXXXXXX",
+    "details": {
+      "builtUpArea": "2530 Sq.Ft",
+      "landArea": "3.57 Aana",
+      "floors": "3.5",
+      "direction": "West",
+      "description": "Perfect family home with optimal space utilization.",
+      "highlights": [
+        "Ready to move-in",
+        "Excellent price-value ratio",
+        "4BHK + 5 Baths configuration"
+      ],
+      "amenities": [
+        "Deck", "Fencing", "Modular Kitchen", "TV Cable", "Wifi", "Water Supply",
+        "Solar Water", "Internet", "Parking", "Security Staff", "Store Room"
+      ],
+      "construction": {
+        "flooring": "American Standard Parqueting",
+        "solar": "Tube System (Sun Company)"
+      },
+      "locationHighlights": ["Walking distance to Big Mart"],
+      "emi": {
+        "loanAmount": 42000000,
+        "downPayment": 0,
+        "interestRate": 8.5,
+        "tenureMonths": 240
+      },
+      "fullFeatures": [
+        "4 Bedroom + 5 Baths (all attached)",
+        "2 Living rooms, Modular Kitchen, Store, Lobby, Puja Kotha, Balcony",
+        "Italian Tiles & Modern Design",
+        "24hrs Water + Automatic Reserve Tank",
+        "Separate visitor washroom",
+        "Semi-Commercial zoning",
+        "<a href='https://maps.google.com/?q=Budhanilkantha+Height' target='_blank'>Click Here for Google Map Location</a>",
+        "Underground Electricity",
+        "24 hrs security",
+        "Land Area: 3.57 Aana",
+        "Built-up: 2530 Sq.Ft",
+        "32 Ft Wide Road",
+        "2 Car Parking + Visitor Space",
+        "All documents provided",
+        "Best Value: Rs 4 Crore 20 Lakhs"
+      ]
+    }
+  },
+  {
+    "id": 7,
+    "title": "Rose Villa Phase V - Villa 7",
+    "location": "Budhanilkantha Height, Near Budhanilkantha Temple",
+    "price": 42000000,
+    "priceType": "standard",
+    "type": "house",
+    "beds": 3,
+    "baths": 4,
+    "image": "/assets/RoseVilla07.jpeg",
+    "featured": true,
+    "status": "available",
+    "agent": "Basobas Nepal Pvt. Ltd",
+    "phone": "+977-XXXXXXXXXX",
+    "details": {
+      "builtUpArea": "2207 Sq.Ft",
+      "landArea": "3.94 Aana",
+      "floors": "3.5",
+      "direction": "East",
+      "description": "East-facing 3BHK villa - Perfect for natural light lovers.",
+      "highlights": [
+        "East-facing (Vastu compliant)",
+        "Compact yet spacious design",
+        "Best price in East-facing units"
+      ],
+      "amenities": [
+        "Deck", "Fencing", "Modular Kitchen", "TV Cable", "Wifi", "Water Supply",
+        "Solar Water", "Internet", "Parking", "Security Staff", "Store Room"
+      ],
+      "construction": {
+        "direction": "East - Morning Sunlight",
+        "flooring": "American Standard"
+      },
+      "locationHighlights": ["Premium East-facing location"],
+      "emi": {
+        "loanAmount": 42000000,
+        "downPayment": 0,
+        "interestRate": 8.5,
+        "tenureMonths": 240
+      },
+      "fullFeatures": [
+        "3 Bedroom + 4 Baths (all attached)",
+        "2 Living rooms, Modular Kitchen, Store, Lobby, Puja Kotha, Balcony",
+        "East-Facing (Vastu Compliant) with Morning Sunlight",
+        "Italian Tiles & Modern Finish",
+        "24hrs Water + Automatic Reserve Tank",
+        "Separate visitor washroom",
+        "Semi-Commercial zoning",
+        "<a href='https://maps.google.com/?q=Budhanilkantha+Height' target='_blank'>Click Here for Google Map Location</a>",
+        "Underground Electricity",
+        "24 hrs security",
+        "Land Area: 3.94 Aana",
+        "Built-up: 2207 Sq.Ft",
+        "32 Ft Wide Road",
+        "2 Car Parking + Visitor Space",
+        "All documents provided",
+        "Price: Rs 4 Crore 20 Lakhs"
+      ]
+    }
+  },
+  {
+    "id": 8,
+    "title": "Rose Villa Phase V - Villa 8",
+    "location": "Budhanilkantha Height, Near Budhanilkantha Temple",
+    "price": 42000000,
+    "priceType": "standard",
+    "type": "house",
+    "beds": 3,
+    "baths": 4,
+    "image": "/assets/RoseVilla08.jpeg",
+    "featured": true,
+    "status": "available",
+    "agent": "Basobas Nepal Pvt. Ltd",
+    "phone": "+977-XXXXXXXXXX",
+    "details": {
+      "builtUpArea": "2207 Sq.Ft",
+      "landArea": "3.94 Aana",
+      "floors": "3.5",
+      "direction": "East",
+      "description": "Premium East-facing villa with excellent Vastu.",
+      "highlights": [
+        "Ready for immediate possession",
+        "East-facing premium unit",
+        "3BHK + 4 Baths"
+      ],
+      "amenities": ["Deck", "Fencing", "Modular Kitchen", "TV Cable", "Wifi", "Water Supply", "Solar Water", "Internet", "Parking", "Security Staff", "Store Room"],
+      "construction": {
+        "direction": "East",
+        "flooring": "American Standard"
+      },
+      "locationHighlights": ["Budhanilkantha Height"],
+      "emi": {
+        "loanAmount": 42000000,
+        "downPayment": 0,
+        "interestRate": 8.5,
+        "tenureMonths": 240
+      },
+      "fullFeatures": [
+        "3 Bedroom + 4 Baths (all attached)",
+        "2 Living rooms, Modular Kitchen, Store, Lobby, Puja Kotha, Balcony",
+        "Premium East-Facing (Vastu Compliant)",
+        "Italian Tiles & Modern Design",
+        "24hrs Water + Automatic Reserve Tank",
+        "Separate visitor washroom",
+        "Semi-Commercial zoning",
+        "<a href='https://maps.google.com/?q=Budhanilkantha+Height' target='_blank'>Click Here for Google Map Location</a>",
+        "Underground Electricity",
+        "24 hrs security",
+        "Land Area: 3.94 Aana",
+        "Built-up: 2207 Sq.Ft",
+        "32 Ft Wide Road",
+        "2 Car Parking + Visitor Space",
+        "All documents provided",
+        "Price: Rs 4 Crore 20 Lakhs"
+      ]
+    }
+  }
+]

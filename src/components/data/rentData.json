@@ -1,0 +1,195 @@
+[
+  {
+    "id": 101,
+    "title": "2BHK Apartment (Rent)",
+    "location": "Budhanilkantha Height, Near Budhanilkantha Temple",
+    "price": 75000,
+    "priceType": "monthly",
+    "type": "apartment",
+    "beds": 2,
+    "baths": 2,
+    "area": 1150,
+    "image": "/assets/rent1.webp",
+    "featured": true,
+    "status": "available",
+    "details": {
+      "builtUpArea": "1150 Sq.Ft",
+      "landArea": "Shared Community",
+      "floors": "1st Floor",
+      "direction": "South",
+      "deposit": 225000,
+      "description": "Modern 2BHK apartment in the heart of Rose Villa Phase V. Fully furnished, ready to move in. Ideal for small families or working professionals.",
+      "highlights": [
+        "Fully Furnished (Beds, Sofa, TV, AC in Master)",
+        "Modular Kitchen with Gas Stove & Chimney",
+        "24/7 Security + CCTV",
+        "Power Backup & Solar Water Heater"
+      ],
+      "amenities": [
+        "Lift", "Parking", "Wifi", "TV Cable", "Water Supply", "Solar Water",
+        "Security Staff", "Garden", "Gym", "Children's Play Area"
+      ]
+    }
+  },
+  {
+    "id": 102,
+    "title": "3BHK Luxury Flat (Rent)",
+    "location": "Budhanilkantha Height, Near Budhanilkantha Temple",
+    "price": 110000,
+    "priceType": "monthly",
+    "type": "apartment",
+    "beds": 3,
+    "baths": 3,
+    "area": 1850,
+    "image": "/assets/rent2.webp",
+    "featured": true,
+    "status": "available",
+    "details": {
+      "builtUpArea": "1850 Sq.Ft",
+      "landArea": "Shared Community",
+      "floors": "3rd Floor",
+      "direction": "West",
+      "deposit": 330000,
+      "description": "Premium 3BHK corner unit with valley views. Semi-furnished with Italian marble flooring and smart home features.",
+      "highlights": [
+        "Panoramic Hill View from Balcony",
+        "Semi-Furnished (Wardrobes, Kitchen Cabinets)",
+        "Smart Lighting & AC in All Rooms",
+        "Rooftop Access + Community Lounge"
+      ],
+      "amenities": [
+        "Lift", "2 Parking Slots", "Wifi", "TV Cable", "Water Supply",
+        "Solar Water", "Security Staff", "Gym", "Swimming Pool", "Club House"
+      ]
+    }
+  },
+  {
+    "id": 103,
+    "title": "Studio Apartment (Rent)",
+    "location": "Budhanilkantha Height, Near Budhanilkantha Temple",
+    "price": 40000,
+    "priceType": "monthly",
+    "type": "studio",
+    "beds": 1,
+    "baths": 1,
+    "area": 550,
+    "image": "/assets/rent3.webp",
+    "featured": false,
+    "status": "available",
+    "details": {
+      "builtUpArea": "550 Sq.Ft",
+      "landArea": "Shared",
+      "floors": "2nd Floor",
+      "direction": "East",
+      "deposit": 80000,
+      "description": "Cozy studio ideal for students or single professionals. Comes with kitchenette and work desk.",
+      "highlights": [
+        "Fully Furnished + Kitchenette",
+        "East Facing – Morning Sun",
+        "High-Speed WiFi Included",
+        "Common Rooftop Terrace"
+      ],
+      "amenities": [
+        "Wifi", "TV Cable", "Water Supply", "Solar Water",
+        "Security Staff", "Bike Parking", "Laundry (Common)"
+      ]
+    }
+  },
+  {
+    "id": 104,
+    "title": "1BHK Compact Flat (Rent)",
+    "location": "Budhanilkantha Height, Near Budhanilkantha Temple",
+    "price": 50000,
+    "priceType": "monthly",
+    "type": "apartment",
+    "beds": 1,
+    "baths": 1,
+    "area": 750,
+    "image": "/assets/rent4.webp",
+    "featured": false,
+    "status": "available",
+    "details": {
+      "builtUpArea": "750 Sq.Ft",
+      "landArea": "Shared",
+      "floors": "Ground Floor",
+      "direction": "North",
+      "deposit": 100000,
+      "description": "Brand new 1BHK with private garden access. Perfect for couples or small families.",
+      "highlights": [
+        "Ground Floor with Small Lawn",
+        "Unfurnished – Customize Your Way",
+        "Pet Friendly (Small Pets)",
+        "Direct Access to Community Park"
+      ],
+      "amenities": [
+        "Parking", "Water Supply", "Solar Water",
+        "Security Staff", "Garden Access"
+      ]
+    }
+  },
+  {
+    "id": 105,
+    "title": "4BHK Penthouse (Rent)",
+    "location": "Budhanilkantha Height, Near Budhanilkantha Temple",
+    "price": 175000,
+    "priceType": "monthly",
+    "type": "apartment",
+    "beds": 4,
+    "baths": 4,
+    "area": 2800,
+    "image": "/assets/rent5.webp",
+    "featured": true,
+    "status": "available",
+    "details": {
+      "builtUpArea": "2800 Sq.Ft",
+      "landArea": "Shared Community",
+      "floors": "Top Floor (Penthouse)",
+      "direction": "North-East",
+      "deposit": 525000,
+      "description": "Spacious 4BHK penthouse with private terrace and 360° valley views. Fully furnished with premium fittings, ideal for large families or executives.",
+      "highlights": [
+        "Private 600 Sq.Ft Terrace with BBQ Area",
+        "Fully Furnished (Designer Interiors)",
+        "Home Automation System",
+        "2 Dedicated Parking + Servant Quarter"
+      ],
+      "amenities": [
+        "Lift", "2 Parking Slots", "Wifi", "TV Cable", "Water Supply",
+        "Solar Water", "Security Staff", "Gym", "Swimming Pool", "Club House",
+        "Private Terrace", "Servant Room"
+      ]
+    }
+  },
+  {
+    "id": 106,
+    "title": "2BHK Budget Apartment (Rent)",
+    "location": "Budhanilkantha Height, Near Budhanilkantha Temple",
+    "price": 55000,
+    "priceType": "monthly",
+    "type": "apartment",
+    "beds": 2,
+    "baths": 1,
+    "area": 900,
+    "image": "/assets/rent6.webp",
+    "featured": false,
+    "status": "available",
+    "details": {
+      "builtUpArea": "900 Sq.Ft",
+      "landArea": "Shared",
+      "floors": "4th Floor",
+      "direction": "South-West",
+      "deposit": 110000,
+      "description": "Affordable 2BHK for budget-conscious tenants. Basic furnishings, well-maintained building, great for young couples or roommates.",
+      "highlights": [
+        "Semi-Furnished (Beds & Wardrobes)",
+        "Compact Balcony with City View",
+        "Shared Laundry Facility",
+        "Low Maintenance Charges"
+      ],
+      "amenities": [
+        "Lift", "Parking", "Water Supply", "Solar Water",
+        "Security Staff", "Common Laundry", "Bike Parking"
+      ]
+    }
+  }
+]
