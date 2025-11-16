@@ -1,6 +1,9 @@
-
-import React from 'react';
+import React, { useState, useEffect } from 'react';
 import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
+import { onAuthStateChanged } from 'firebase/auth'; // <-- IMPORT onAuthStateChanged
+
+import { FirebaseProvider, useFirebase } from './components/Firebase'; // <-- IMPORT useFirebase
+
 import Navbar from './components/Navbar';
 import Footer from './components/Footer';
 import HomePage from './components/pages/HomePage';
@@ -15,33 +18,55 @@ import SignInPage from './components/pages/SignInPage';
 import PostPropertyPage from './components/pages/PostPropertyPage';
 import ToolPage from './components/pages/ToolPage';
 
-function App() {
+// Create a wrapper component to handle auth state
+function AppContent() {
+  const { auth } = useFirebase();
+  const [user, setUser] = useState(null);
+
+  useEffect(() => {
+    // Listen for authentication state changes
+    const unsubscribe = onAuthStateChanged(auth, (currentUser) => {
+      setUser(currentUser);
+    });
+
+    // Cleanup subscription on unmount
+    return () => unsubscribe();
+  }, [auth]);
+
   return (
-    <Router>
-      <div className="min-h-screen flex flex-col">
-        <Navbar />
-        <main className="flex-grow">
-          <Routes>
-            <Route path="/" element={
-              <>
+    <div className="min-h-screen flex flex-col">
+      <Navbar user={user} /> {/* <-- PASS USER TO NAVBAR */}
+      <main className="flex-grow">
+        <Routes>
+          <Route path="/" element={
+            <>
               <HomePage />
               <ContactPage/>
-              </>
-              } />
-            <Route path="/buy" element={<BuyPage />} />
-            <Route path="/rent" element={<RentPage />} />
-            <Route path="/advertise" element={<AdvertisePage />} />
-            <Route path="/tools" element={<ToolsPage />} />
-            <Route path="/blog" element={<BlogPage />} />
-            <Route path="/property/:id" element={<PropertyDetails />} />
-            <Route path="/signin" element={<SignInPage />} />
-            <Route path="/postpropertypage" element={<PostPropertyPage />} />
-            <Route path="/toolpage" element={<ToolPage />} />
-          </Routes>
-        </main>
-        <Footer />
-      </div>
-    </Router>
+            </>
+          } />
+          <Route path="/buy" element={<BuyPage />} />
+          <Route path="/rent" element={<RentPage />} />
+          <Route path="/advertise" element={<AdvertisePage />} />
+          <Route path="/tools" element={<ToolsPage />} />
+          <Route path="/blog" element={<BlogPage />} />
+          <Route path="/property/:id" element={<PropertyDetails />} />
+          <Route path="/signin" element={<SignInPage />} />
+          <Route path="/postpropertypage" element={<PostPropertyPage />} />
+          <Route path="/toolpage" element={<ToolPage />} />
+        </Routes>
+      </main>
+      <Footer />
+    </div>
+  );
+}
+
+function App() {
+  return (
+    <FirebaseProvider>
+      <Router>
+        <AppContent />
+      </Router>
+    </FirebaseProvider>
   );
 }
 

@@ -1,21 +1,16 @@
-// components/Navbar.jsx
 import React, { useState, useEffect, useRef } from 'react';
 import { useLocation, useNavigate, Link } from 'react-router-dom';
-import { Menu, X, ChevronDown, Home, Search, Bell, User } from 'lucide-react';
+import { Menu, X, ChevronDown, Home, Search, Bell, User, LogOut } from 'lucide-react';
+import { useFirebase } from './Firebase';
+import { signOut } from 'firebase/auth';
 
-const Navbar = () => {
+const Navbar = ({ user }) => {
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
-  const [toolsDropdownOpen, setToolsDropdownOpen] = useState(false);
-  const [servicesDropdownOpen, setServicesDropdownOpen] = useState(false);
   const [scrolled, setScrolled] = useState(false);
-
   const location = useLocation();
   const navigate = useNavigate();
+  const { auth } = useFirebase();
 
-  const toolsRef = useRef(null);
-  const servicesRef = useRef(null);
-
-  // Track scroll for sticky effect
   useEffect(() => {
     const handleScroll = () => {
       setScrolled(window.scrollY > 20);
@@ -24,24 +19,18 @@ const Navbar = () => {
     return () => window.removeEventListener('scroll', handleScroll);
   }, []);
 
-  // Close dropdowns when clicking outside
-  useEffect(() => {
-    const handleClickOutside = (event) => {
-      if (toolsRef.current && !toolsRef.current.contains(event.target)) {
-        setToolsDropdownOpen(false);
-      }
-      if (servicesRef.current && !servicesRef.current.contains(event.target)) {
-        setServicesDropdownOpen(false);
-      }
-    };
-    document.addEventListener('mousedown', handleClickOutside);
-    return () => document.removeEventListener('mousedown', handleClickOutside);
-  }, []);
-
-  // Close mobile menu on route change
   useEffect(() => {
     setMobileMenuOpen(false);
   }, [location.pathname]);
+  
+  const handleSignOut = async () => {
+    try {
+      await signOut(auth);
+      navigate('/');
+    } catch (error) {
+      console.error("Failed to sign out", error);
+    }
+  };
 
   const NavLink = ({ to, children, onClick }) => {
     const isActive = location.pathname === to;
@@ -66,23 +55,6 @@ const Navbar = () => {
     );
   };
 
-  const DropdownLink = ({ to, icon, label, onClick }) => (
-    <Link
-      to={to}
-      onClick={() => {
-        setToolsDropdownOpen(false);
-        setServicesDropdownOpen(false);
-        if (onClick) onClick();
-      }}
-      className="flex items-center px-4 py-3 text-sm text-gray-700 hover:bg-gradient-to-r hover:from-green-50 hover:to-emerald-50 hover:text-green-600 rounded-lg transition-all duration-200"
-    >
-      <span className="w-8 h-8 bg-green-100 rounded-lg flex items-center justify-center mr-3 text-lg">
-        {icon}
-      </span>
-      {label}
-    </Link>
-  );
-
   return (
     <header
       className={`sticky top-0 z-50 transition-all duration-300 ${
@@ -93,7 +65,6 @@ const Navbar = () => {
     >
       <div className="container mx-auto px-4">
         <div className="flex justify-between items-center py-4">
-          {/* Logo */}
           <div className="flex items-center">
             <Link
               to="/"
@@ -107,7 +78,6 @@ const Navbar = () => {
               </span>
             </Link>
 
-            {/* Desktop Navigation */}
             <nav className="hidden lg:flex items-center space-x-8 ml-12">
               <NavLink to="/buy">Buy</NavLink>
               <NavLink to="/rent">Rent</NavLink>
@@ -117,7 +87,6 @@ const Navbar = () => {
             </nav>
           </div>
 
-          {/* Right Side Actions */}
           <div className="flex items-center space-x-3">
             <button className="hidden md:flex p-2 text-gray-600 hover:text-green-600 hover:bg-green-50 rounded-lg transition-all duration-300">
               <Search size={20} />
@@ -135,15 +104,30 @@ const Navbar = () => {
               <span className="text-xs bg-white/20 px-2 py-0.5 rounded">FREE</span>
             </Link>
 
-            <Link
-              to="/signin"
-              className="hidden lg:flex items-center space-x-2 border-2 border-gray-200 text-gray-700 px-5 py-2.5 rounded-lg hover:border-green-600 hover:text-green-600 hover:bg-green-50 transition-all duration-300 font-medium"
-            >
-              <User size={18} />
-              <span>SIGN IN / SIGN UP</span>
-            </Link>
+            {user ? (
+              <div className="hidden lg:flex items-center space-x-3">
+                <button className="flex items-center space-x-2 border-2 border-gray-200 text-gray-700 px-5 py-2.5 rounded-lg hover:border-green-600 hover:text-green-600 hover:bg-green-50 transition-all duration-300 font-medium">
+                  <User size={18} />
+                  <span>{user.displayName || 'Profile'}</span>
+                </button>
+                <button
+                  onClick={handleSignOut}
+                  className="flex items-center space-x-2 border-2 border-red-200 text-red-600 px-5 py-2.5 rounded-lg hover:border-red-600 hover:bg-red-50 transition-all duration-300 font-medium"
+                >
+                  <LogOut size={18} />
+                  <span>SIGN OUT</span>
+                </button>
+              </div>
+            ) : (
+              <Link
+                to="/signin"
+                className="hidden lg:flex items-center space-x-2 border-2 border-gray-200 text-gray-700 px-5 py-2.5 rounded-lg hover:border-green-600 hover:text-green-600 hover:bg-green-50 transition-all duration-300 font-medium"
+              >
+                <User size={18} />
+                <span>SIGN IN / SIGN UP</span>
+              </Link>
+            )}
 
-            {/* Mobile Menu Toggle */}
             <button
               className="lg:hidden p-2 text-gray-700 hover:text-green-600 hover:bg-green-50 rounded-lg transition-all duration-300"
               onClick={() => setMobileMenuOpen(!mobileMenuOpen)}
@@ -154,7 +138,6 @@ const Navbar = () => {
         </div>
       </div>
 
-      {/* Mobile Menu */}
       <div
         className={`lg:hidden overflow-hidden transition-all duration-500 ease-in-out ${
           mobileMenuOpen ? 'max-h-96 opacity-100' : 'max-h-0 opacity-0'
@@ -192,20 +175,37 @@ const Navbar = () => {
             Blog
           </Link>
 
-          <div className="pt-4 space-y-2">
+          <div className="pt-4 space-y-2 border-t border-gray-200">
             <Link
               to="/postpropertypage"
               className="w-full block bg-gradient-to-r from-green-600 to-emerald-600 text-white px-4 py-3 rounded-lg hover:shadow-lg transition-all duration-300 font-medium text-center"
             >
               POST PROPERTY - FREE
             </Link>
-            <Link
-              to="/signin"
-              className="w-full flex items-center justify-center space-x-2 border-2 border-gray-200 text-gray-700 px-4 py-3 rounded-lg hover:border-green-600 hover:text-green-600 hover:bg-green-50 transition-all duration-300 font-medium"
-            >
-              <User size={18} />
-              <span>SIGN IN / SIGN UP</span>
-            </Link>
+            
+            {user ? (
+              <div className="w-full text-center space-y-2">
+                <button className="w-full flex items-center justify-center space-x-2 border-2 border-gray-200 text-gray-700 px-4 py-3 rounded-lg hover:border-green-600 hover:text-green-600 hover:bg-green-50 transition-all duration-300 font-medium">
+                  <User size={18} />
+                  <span>{user.displayName || 'Profile'}</span>
+                </button>
+                <button
+                  onClick={handleSignOut}
+                  className="w-full flex items-center justify-center space-x-2 border-2 border-red-200 text-red-600 px-4 py-3 rounded-lg hover:border-red-600 hover:bg-red-50 transition-all duration-300 font-medium"
+                >
+                  <LogOut size={18} />
+                  <span>SIGN OUT</span>
+                </button>
+              </div>
+            ) : (
+              <Link
+                to="/signin"
+                className="w-full flex items-center justify-center space-x-2 border-2 border-gray-200 text-gray-700 px-4 py-3 rounded-lg hover:border-green-600 hover:text-green-600 hover:bg-green-50 transition-all duration-300 font-medium"
+              >
+                <User size={18} />
+                <span>SIGN IN / SIGN UP</span>
+              </Link>
+            )}
           </div>
         </div>
       </div>

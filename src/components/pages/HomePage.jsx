@@ -6,6 +6,17 @@ import {
   ArrowRight,
   Filter,
   PhoneCall,
+  MessageSquare,
+  Send,
+  Star,
+  ThumbsUp,
+  User,
+  Mail,
+  Phone,
+  Building,
+  Calendar,
+  CheckCircle,
+  Clock,
 } from 'lucide-react';
 import { motion, AnimatePresence } from 'framer-motion';
 import { useNavigate } from 'react-router-dom';
@@ -18,6 +29,53 @@ const HomePage = () => {
   const [priceRange, setPriceRange] = useState('all');
   const [savedProperties, setSavedProperties] = useState([]);
   const [showFilters, setShowFilters] = useState(false);
+
+  // Feedback State
+  const [rating, setRating] = useState(0);
+  const [hoverRating, setHoverRating] = useState(0);
+  const [formData, setFormData] = useState({
+    name: '',
+    email: '',
+    phone: '',
+    propertyInterest: '',
+    feedbackType: 'general',
+    message: ''
+  });
+  const [submitted, setSubmitted] = useState(false);
+  const [activeFilter, setActiveFilter] = useState('all');
+
+  const [feedbacks, setFeedbacks] = useState([
+    {
+      id: 1,
+      name: 'Rajesh Sharma',
+      rating: 5,
+      date: '2024-11-10',
+      type: 'property',
+      comment: 'Excellent service! Found my dream apartment in Kathmandu within a week.',
+      status: 'resolved',
+      likes: 12
+    },
+    {
+      id: 2,
+      name: 'Sita Devi',
+      rating: 4,
+      date: '2024-11-12',
+      type: 'service',
+      comment: 'Good platform with many listings. Would appreciate more filter options.',
+      status: 'pending',
+      likes: 8
+    },
+    {
+      id: 3,
+      name: 'Amit Kumar',
+      rating: 5,
+      date: '2024-11-14',
+      type: 'general',
+      comment: 'Amazing experience! The virtual tours feature is fantastic.',
+      status: 'resolved',
+      likes: 15
+    }
+  ]);
 
   const navigate = useNavigate();
 
@@ -59,7 +117,6 @@ const HomePage = () => {
     return matchesSearch && matchesType && matchesPrice;
   });
 
-  // Category data
   const categories = [
     { name: 'House', icon: 'https://images.unsplash.com/photo-1568605114967-8130f3a36994?w=100&h=100&fit=crop' },
     { name: 'Land', icon: 'https://images.unsplash.com/photo-1441974231531-c6227db76b6e?w=100&h=100&fit=crop' },
@@ -68,6 +125,42 @@ const HomePage = () => {
     { name: 'Business', icon: 'https://images.unsplash.com/photo-1497366216548-37526070297c?w=100&h=100&fit=crop' },
     { name: 'Office Space', icon: 'https://i.pinimg.com/736x/1c/8b/65/1c8b65341e984b0f8ba411c6c22d6b1a.jpg' },
     { name: 'Hostel', icon: 'https://i.pinimg.com/736x/67/dc/19/67dc19749c36138eec9a7dc4318b32da.jpg' },
+  ];
+
+  // Feedback Handlers
+  const handleSubmit = (e) => {
+    e.preventDefault();
+    const newFeedback = {
+      id: feedbacks.length + 1,
+      name: formData.name,
+      rating,
+      date: new Date().toISOString().split('T')[0],
+      type: formData.feedbackType,
+      comment: formData.message,
+      status: 'pending',
+      likes: 0
+    };
+    setFeedbacks([newFeedback, ...feedbacks]);
+    setSubmitted(true);
+    setTimeout(() => {
+      setSubmitted(false);
+      setFormData({ name: '', email: '', phone: '', propertyInterest: '', feedbackType: 'general', message: '' });
+      setRating(0);
+    }, 3000);
+  };
+
+  const handleLike = (id) => {
+    setFeedbacks(prev => prev.map(fb => fb.id === id ? { ...fb, likes: fb.likes + 1 } : fb));
+  };
+
+  const filteredFeedbacks = activeFilter === 'all' 
+    ? feedbacks 
+    : feedbacks.filter(fb => fb.type === activeFilter);
+
+  const feedbackTypes = [
+    { value: 'general', label: 'General Feedback', icon: MessageSquare },
+    { value: 'property', label: 'Property Related', icon: Building },
+    { value: 'service', label: 'Service Quality', icon: Star },
   ];
 
   return (
@@ -228,14 +321,9 @@ const HomePage = () => {
         </div>
       </section>
 
-      {/* Main Content - Properties Section */}
+      {/* Properties Section */}
       <main className="container mx-auto px-4 py-12">
-        <motion.div
-          initial={{ opacity: 0 }}
-          animate={{ opacity: 1 }}
-          transition={{ delay: 0.4 }}
-          className="flex justify-end mb-6"
-        >
+        <motion.div className="flex justify-end mb-6">
           <motion.button
             whileHover={{ scale: 1.05 }}
             whileTap={{ scale: 0.95 }}
@@ -246,11 +334,7 @@ const HomePage = () => {
           </motion.button>
         </motion.div>
 
-        {/* Property Cards */}
-        <motion.div
-          layout
-          className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-6"
-        >
+        <motion.div layout className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-6">
           <AnimatePresence>
             {filteredProperties.map((property, index) => (
               <motion.div
@@ -263,7 +347,6 @@ const HomePage = () => {
                 whileHover={{ y: -8 }}
                 className="bg-white rounded-2xl shadow-lg overflow-hidden border border-gray-200 hover:shadow-xl transition-all duration-300"
               >
-                {/* Image Section */}
                 <div className="relative overflow-hidden">
                   <motion.img
                     whileHover={{ scale: 1.05 }}
@@ -272,77 +355,63 @@ const HomePage = () => {
                     alt={property.title}
                     className="w-full h-48 md:h-52 object-cover"
                   />
-
                   {property.featured && (
                     <div className="absolute top-2 left-2">
-                      <div className="bg-yellow-400 text-black px-2 py-1 rounded-full text-xs font-bold flex items-center gap-1 shadow-lg">
-                        Star
+                      <div className="bg-yellow-400 text-black px-2 py-1 rounded-full text-xs font-bold shadow-lg">
+                        Featured
                       </div>
                     </div>
                   )}
-
-                  <div className="absolute top-2 right-2 bg-green-500 text-white px-2 py-1 rounded-full text-xs font-bold flex items-center gap-1 shadow-lg">
-                    <span className="text-xs">Checkmark</span>
+                  <div className="absolute top-2 right-2 bg-green-500 text-white px-2 py-1 rounded-full text-xs font-bold shadow-lg">
                     SALE
                   </div>
-
                   <div className="absolute bottom-2 left-2 bg-white/90 backdrop-blur-sm text-gray-800 px-2 py-1 rounded-full text-xs font-semibold shadow-md">
                     {property.type.toUpperCase()}
                   </div>
-
                   <div className="absolute top-2 right-2 flex flex-col gap-1">
                     <motion.button
                       whileHover={{ scale: 1.1 }}
                       whileTap={{ scale: 0.9 }}
                       onClick={() => handleSaveProperty(property.id)}
-                      className={`p-1.5 rounded-full shadow-lg transition-all ${savedProperties.includes(property.id)
+                      className={`p-1.5 rounded-full shadow-lg transition-all ${
+                        savedProperties.includes(property.id)
                           ? 'bg-red-500 text-white'
                           : 'bg-white/90 text-gray-700 hover:bg-white'
-                        }`}
+                      }`}
                     >
                       <Heart size={16} fill={savedProperties.includes(property.id) ? 'currentColor' : 'none'} />
                     </motion.button>
                     <motion.button
                       whileHover={{ scale: 1.1 }}
                       whileTap={{ scale: 0.9 }}
-                      className="p-1.5 bg-green-500 text-white rounded-full shadow-lg hover:bg-green-600 transition-all"
+                      className="p-1.5 bg-green-500 text-white rounded-full shadow-lg hover:bg-green-600"
                     >
                       <PhoneCall size={16} />
                     </motion.button>
                   </div>
-
                   <div className="absolute bottom-2 right-4 text-xs text-white bg-black/50 px-2 py-1 rounded">
                     1/5
                   </div>
                 </div>
 
-                {/* Content Section */}
                 <div className="p-4">
-                  <motion.div
-                    initial={{ opacity: 0 }}
-                    animate={{ opacity: 1 }}
-                    transition={{ delay: 0.2 }}
-                    className="text-2xl font-bold text-gray-800 mb-2"
-                  >
+                  <div className="text-2xl font-bold text-gray-800 mb-2">
                     {formatPrice(property.price, property.priceType)}
-                  </motion.div>
-
-                  <h3 className="text-sm font-semibold text-gray-800 mb-3 line-clamp-2 leading-tight">
+                  </div>
+                  <h3 className="text-sm font-semibold text-gray-800 mb-3 line-clamp-2">
                     {property.title}
                   </h3>
-
                   <p className="text-xs text-gray-600 mb-3 flex items-center gap-1">
                     <MapPin size={12} className="text-green-600" />
                     {property.location}
                   </p>
-
                   <div className="flex items-center gap-4 text-xs text-gray-600 mb-4">
                     <span className="flex items-center gap-1">
-                      <span className="w-4 h-4 bg-gray-300 rounded-full flex items-center justify-center text-white text-xs">H</span>
+                      <span className="w-4 h-4 bg-gray-300 rounded-full flex items-center justify-center text-white text-xs">B</span>
                       {property.beds || 'N/A'}
                     </span>
                     <span className="flex items-center gap-1">
-                      <span className="w-4 h-4 bg-gray-300 rounded-full flex items-center justify-center text-white text-xs">S</span>
+                      <span className="w-4 h-4 bg-gray-300 rounded-full flex items-center justify-center text-white text-xs">B</span>
                       {property.baths || 'N/A'}
                     </span>
                     <span className="flex items-center gap-1">
@@ -350,17 +419,15 @@ const HomePage = () => {
                       1 Kitchen
                     </span>
                   </div>
-
                   <div className="flex flex-col gap-2">
                     <motion.button
                       whileHover={{ scale: 1.02 }}
                       whileTap={{ scale: 0.98 }}
-                      onClick={() => navigate(`/property/${property.id}`)} // <-- NAVIGATE
+                      onClick={() => navigate(`/property/${property.id}`)}
                       className="w-full bg-gradient-to-r from-green-600 to-emerald-600 hover:from-green-700 hover:to-emerald-700 text-white py-2 rounded-lg text-sm font-semibold transition-all"
                     >
                       VIEW DETAILS
                     </motion.button>
-
                     <motion.button
                       whileHover={{ scale: 1.02 }}
                       whileTap={{ scale: 0.98 }}
@@ -408,6 +475,235 @@ const HomePage = () => {
           )}
         </AnimatePresence>
       </main>
+
+      {/* FEEDBACK SECTION */}
+      <section className="bg-gradient-to-br from-green-600 via-emerald-500 to-teal-600 text-white py-20">
+        <div className="container mx-auto px-4">
+          <motion.div
+            initial={{ opacity: 0, y: 30 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true }}
+            className="text-center mb-12"
+          >
+            <h2 className="text-5xl font-extrabold mb-4">Share Your Feedback</h2>
+            <p className="text-xl text-green-100">Help us improve your experience</p>
+          </motion.div>
+
+          <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 max-w-7xl mx-auto">
+            {/* Feedback Form */}
+            <motion.div
+              initial={{ opacity: 0, x: -30 }}
+              whileInView={{ opacity: 1, x: 0 }}
+              viewport={{ once: true }}
+              className="bg-white rounded-3xl shadow-2xl p-8"
+            >
+              <h3 className="text-2xl font-bold text-gray-800 mb-6 flex items-center gap-3">
+                <Send className="text-green-600" size={28} />
+                Leave a Review
+              </h3>
+
+              <AnimatePresence>
+                {submitted && (
+                  <motion.div
+                    initial={{ opacity: 0, y: -10 }}
+                    animate={{ opacity: 1, y: 0 }}
+                    exit={{ opacity: 0 }}
+                    className="bg-green-50 border border-green-500 rounded-xl p-4 mb-6 flex items-center gap-3"
+                  >
+                    <CheckCircle className="text-green-600" size={24} />
+                    <p className="font-semibold text-green-800">Thank you! Your feedback has been submitted.</p>
+                  </motion.div>
+                )}
+              </AnimatePresence>
+
+              <form onSubmit={handleSubmit} className="space-y-5">
+                <div className="flex gap-2 justify-center">
+                  {[1, 2, 3, 4, 5].map((star) => (
+                    <motion.button
+                      key={star}
+                      type="button"
+                      whileHover={{ scale: 1.2 }}
+                      whileTap={{ scale: 0.9 }}
+                      onMouseEnter={() => setHoverRating(star)}
+                      onMouseLeave={() => setHoverRating(0)}
+                      onClick={() => setRating(star)}
+                    >
+                      <Star
+                        size={36}
+                        className={`transition-colors ${
+                          star <= (hoverRating || rating) ? 'fill-yellow-400 text-yellow-400' : 'text-gray-300'
+                        }`}
+                      />
+                    </motion.button>
+                  ))}
+                </div>
+
+                <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
+                  <div className="relative">
+                    <User className="absolute left-3 top-3 text-gray-400" size={20} />
+                    <input
+                      type="text"
+                      required
+                      placeholder="Your Name"
+                      value={formData.name}
+                      onChange={e => setFormData({ ...formData, name: e.target.value })}
+                      className="w-full pl-10 pr-4 py-3 border border-gray-300 rounded-xl focus:ring-2 focus:ring-green-500 outline-none"
+                    />
+                  </div>
+                  <div className="relative">
+                    <Mail className="absolute left-3 top-3 text-gray-400" size={20} />
+                    <input
+                      type="email"
+                      required
+                      placeholder="Email"
+                      value={formData.email}
+                      onChange={e => setFormData({ ...formData, email: e.target.value })}
+                      className="w-full pl-10 pr-4 py-3 border border-gray-300 rounded-xl focus:ring-2 focus:ring-green-500 outline-none"
+                    />
+                  </div>
+                </div>
+
+                <div className="relative">
+                  <Phone className="absolute left-3 top-3 text-gray-400" size={20} />
+                  <input
+                    type="tel"
+                    placeholder="Phone (Optional)"
+                    value={formData.phone}
+                    onChange={e => setFormData({ ...formData, phone: e.target.value })}
+                    className="w-full pl-10 pr-4 py-3 border border-gray-300 rounded-xl focus:ring-2 focus:ring-green-500 outline-none"
+                  />
+                </div>
+
+                <div className="grid grid-cols-3 gap-2">
+                  {feedbackTypes.map(type => (
+                    <button
+                      key={type.value}
+                      type="button"
+                      onClick={() => setFormData({ ...formData, feedbackType: type.value })}
+                      className={`py-2 rounded-lg text-sm font-medium transition-all flex items-center justify-center gap-1 ${
+                        formData.feedbackType === type.value
+                          ? 'bg-green-600 text-white'
+                          : 'bg-gray-100 text-gray-700 hover:bg-gray-200'
+                      }`}
+                    >
+                      <type.icon size={16} />
+                      {type.label}
+                    </button>
+                  ))}
+                </div>
+
+                <textarea
+                  required
+                  rows={4}
+                  placeholder="Your message..."
+                  value={formData.message}
+                  onChange={e => setFormData({ ...formData, message: e.target.value })}
+                  className="w-full p-4 border border-gray-300 rounded-xl focus:ring-2 focus:ring-green-500 outline-none resize-none text-black"
+                />
+
+                <motion.button
+                  whileHover={{ scale: 1.02 }}
+                  whileTap={{ scale: 0.98 }}
+                  type="submit"
+                  className="w-full bg-gradient-to-r from-green-600 to-emerald-600 text-white py-3 rounded-xl font-semibold shadow-lg hover:shadow-xl transition-all flex items-center justify-center gap-2"
+                >
+                  <Send size={18} />
+                  Submit Feedback
+                </motion.button>
+              </form>
+            </motion.div>
+
+            {/* Recent Reviews */}
+            <motion.div
+              initial={{ opacity: 0, x: 30 }}
+              whileInView={{ opacity: 1, x: 0 }}
+              viewport={{ once: true }}
+              className="bg-white rounded-3xl shadow-2xl p-8"
+            >
+              <h3 className="text-2xl font-bold text-gray-800 mb-6">Recent Reviews</h3>
+
+              <div className="flex gap-2 mb-6 flex-wrap">
+                <button
+                  onClick={() => setActiveFilter('all')}
+                  className={`px-4 py-1.5 rounded-full text-sm font-medium transition-all ${
+                    activeFilter === 'all' ? 'bg-green-600 text-white' : 'bg-gray-100 text-gray-700'
+                  }`}
+                >
+                  All
+                </button>
+                {feedbackTypes.map(t => (
+                  <button
+                    key={t.value}
+                    onClick={() => setActiveFilter(t.value)}
+                    className={`px-4 py-1.5 rounded-full text-sm font-medium transition-all ${
+                      activeFilter === t.value ? 'bg-green-600 text-white' : 'bg-gray-100 text-gray-700'
+                    }`}
+                  >
+                    {t.label}
+                  </button>
+                ))}
+              </div>
+
+              <div className="space-y-4 max-h-96 overflow-y-auto pr-2">
+                <AnimatePresence>
+                  {filteredFeedbacks.map((fb, i) => (
+                    <motion.div
+                      key={fb.id}
+                      initial={{ opacity: 0, y: 20 }}
+                      animate={{ opacity: 1, y: 0 }}
+                      exit={{ opacity: 0, y: -20 }}
+                      transition={{ delay: i * 0.1 }}
+                      className="bg-gradient-to-r from-gray-50 to-green-50 rounded-xl p-5 border"
+                    >
+                      <div className="flex justify-between items-start mb-2">
+                        <div className="flex items-center gap-3">
+                          <div className="w-10 h-10 bg-green-600 rounded-full flex items-center justify-center text-white font-bold">
+                            {fb.name[0]}
+                          </div>
+                          <div>
+                            <p className="font-semibold text-gray-800">{fb.name}</p>
+                            <p className="text-xs text-gray-500 flex items-center gap-1">
+                              <Calendar size={12} />
+                              {new Date(fb.date).toLocaleDateString()}
+                            </p>
+                          </div>
+                        </div>
+                        <span className={`text-xs px-2 py-1 rounded-full ${
+                          fb.status === 'resolved' ? 'bg-green-100 text-green-700' : 'bg-yellow-100 text-yellow-700'
+                        }`}>
+                          {fb.status === 'resolved' ? 'Resolved' : 'Pending'}
+                        </span>
+                      </div>
+                      <div className="flex gap-1 mb-2">
+                        {[...Array(5)].map((_, i) => (
+                          <Star
+                            key={i}
+                            size={14}
+                            className={i < fb.rating ? 'fill-yellow-400 text-yellow-400' : 'text-gray-300'}
+                          />
+                        ))}
+                      </div>
+                      <p className="text-gray-700 text-sm mb-3">{fb.comment}</p>
+                      <div className="flex justify-between items-center">
+                        <span className="text-xs bg-gray-100 px-2 py-1 rounded">
+                          {feedbackTypes.find(t => t.value === fb.type)?.label}
+                        </span>
+                        <button
+                          onClick={() => handleLike(fb.id)}
+                          className="flex items-center gap-1 text-gray-600 hover:text-green-600 text-sm"
+                        >
+                          <ThumbsUp size={14} />
+                          {fb.likes}
+                        </button>
+                      </div>
+                    </motion.div>
+                  ))}
+                </AnimatePresence>
+              </div>
+            </motion.div>
+          </div>
+        </div>
+      </section>
     </div>
   );
 };
