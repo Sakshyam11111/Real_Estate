@@ -1,5 +1,7 @@
 **[View Live](https://real-estate-gamma-ten-68.vercel.app/)**
 
+**[Figma Live](https://www.figma.com/design/ivULGCmMl30YmUnYgtmlYG/Task1_Real_Estate_Listing?node-id=0-1&p=f&t=gUSsPV600PStrpHe-0)**
+
 
 # React + Vite
 
